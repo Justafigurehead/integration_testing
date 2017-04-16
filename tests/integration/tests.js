@@ -57,13 +57,13 @@ describe('calculator functionality', function() {
     element(by.css('#operator_equals')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('-1');
   });
-  it('can divide by 0 and can get zero', function(){
+  it('can divide by 0 and get zero, then display zero', function(){
     running_total = element(by.css('#running_total'));
     element(by.css('#number0')).click();
     element(by.css('#operator_divide')).click();
     element(by.css('#number0')).click();
     element(by.css('#operator_equals')).click();
-    expect(running_total.getAttribute('value')).to.eventually.equal('0');
+    expect(running_total.getAttribute('value')).to.eventually.equal('undefined');
   });
   it('can handle decimal places', function(){
     running_total = element(by.css('#running_total'));
